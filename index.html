@@ -9,41 +9,33 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   min-height:100vh;
   font-family:'Noto Serif Bengali', serif;
-
-  /* 🔥 PREMIUM GRADIENT */
   background: radial-gradient(circle at top, #2b2b55, #0f0f1a);
   background-attachment: fixed;
-
   color:#fff;
-  overflow-y:auto;
 }
 
-/* ✨ CENTER CONTENT */
+/* wrapper */
 .wrapper{
   display:flex;
   justify-content:center;
 }
 
-/* 💎 GLASS CARD */
+/* container */
 .container{
-  width:90%;
+  width:92%;
   max-width:750px;
-  padding:40px;
-  margin:80px 0;
+  padding:30px;
+  margin:60px 0;
 
-  border-radius:25px;
-  backdrop-filter: blur(25px);
+  border-radius:20px;
+  backdrop-filter: blur(20px);
   background: rgba(255,255,255,0.08);
-  box-shadow:0 20px 80px rgba(0,0,0,0.7);
+  box-shadow:0 15px 60px rgba(0,0,0,0.7);
 
   position:relative;
   z-index:2;
@@ -51,14 +43,14 @@ body{
 }
 
 h1{
-  font-size:30px;
+  font-size:26px;
   margin-bottom:15px;
   color:#ffb6c1;
 }
 
 .desc{
-  font-size:16px;
-  margin-bottom:25px;
+  font-size:15px;
+  margin-bottom:20px;
   color:#ddd;
   line-height:1.7;
 }
@@ -70,84 +62,100 @@ input{
   outline:none;
   text-align:center;
   margin-bottom:10px;
-  width:200px;
+  width:180px;
 }
 
 .btn{
-  padding:10px 20px;
+  padding:10px 18px;
   border:none;
   border-radius:25px;
   background:linear-gradient(135deg,#ff4b91,#ff7eb3);
   color:#fff;
   cursor:pointer;
-  transition:0.3s;
 }
 
-.btn:hover{
-  transform:scale(1.05);
-}
-
-/* 💌 LETTER STYLE */
+/* letter */
 .letter{
   margin-top:25px;
-  text-align:justify; /* 🔥 equal spacing */
-  line-height:2;
-  font-size:18px;
+  text-align:justify;
+  line-height:1.9;
+  font-size:17px;
   display:none;
 
   border-left:3px solid #ff9acb;
-  padding-left:20px;
+  padding-left:15px;
   white-space:pre-line;
 }
 
-/* ❤️ HEART BACKGROUND */
+/* cursor */
+.cursor{
+  display:inline-block;
+  width:2px;
+  background:#fff;
+  margin-left:3px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink{
+  0%,50%,100%{opacity:1;}
+  25%,75%{opacity:0;}
+}
+
+/* ❤️ quote box */
+.quote-box{
+  margin-top:25px;
+  padding:20px;
+  border-radius:15px;
+
+  background:linear-gradient(135deg, rgba(255,75,145,0.2), rgba(255,126,179,0.2));
+  border:1px solid rgba(255,255,255,0.2);
+
+  font-size:18px;
+  text-align:center;
+  display:none;
+
+  backdrop-filter: blur(10px);
+}
+
+/* hearts */
 .heart{
   position:fixed;
-  width:15px;
-  height:15px;
+  width:18px;
+  height:18px;
   background:#ff4b91;
   transform:rotate(45deg);
   animation: float 10s linear infinite;
 
-  z-index:0;
-  opacity:0.4;
-  filter:blur(1px);
+  opacity:0.7;
 }
 
 .heart::before,
 .heart::after{
   content:'';
   position:absolute;
-  width:15px;
-  height:15px;
+  width:18px;
+  height:18px;
   background:#ff4b91;
   border-radius:50%;
 }
 
-.heart::before{top:-7px;}
-.heart::after{left:-7px;}
+.heart::before{top:-9px;}
+.heart::after{left:-9px;}
 
 @keyframes float{
-  0%{
-    transform:translateY(100vh) rotate(45deg);
-    opacity:0;
-  }
-  20%{opacity:0.6;}
-  100%{
-    transform:translateY(-10vh) rotate(45deg);
-    opacity:0;
-  }
+  0%{transform:translateY(100vh) rotate(45deg);opacity:0;}
+  20%{opacity:0.8;}
+  100%{transform:translateY(-10vh) rotate(45deg);opacity:0;}
 }
 
-/* 📱 MOBILE OPTIMIZATION */
+/* 📱 mobile */
 @media(max-width:600px){
   .container{
-    padding:25px;
+    padding:20px;
   }
-
-  .letter{
-    font-size:16px;
-  }
+  h1{font-size:22px;}
+  .letter{font-size:16px;}
+  .quote-box{font-size:16px;}
 }
 
 </style>
@@ -156,27 +164,33 @@ input{
 <body>
 
 <div class="wrapper">
-  <div class="container">
+<div class="container">
 
-    <h1>ভালোবাসার অসম্পূর্ণ চিঠি</h1>
+<h1>ভালোবাসার অসম্পূর্ণ চিঠি</h1>
 
-    <div class="desc" id="desc">
-      তোমাকে একটা চিঠি দিয়েছিলাম। কিন্তু কোনো এক অজানা কারণে চিঠিটা লিখে শেষ করতে পারিনি।
-      তাই বাকি চিঠিটা এই ওয়েবসাইটের মাধ্যমে প্রকাশ করলাম।
-    </div>
+<div class="desc" id="desc">
+  তোমাকে একটা চিঠি দিয়েছিলাম। কিন্তু শেষ করতে পারিনি।
+  তাই বাকি চিঠিটা এখানে লিখলাম।
+</div>
 
-    <div id="auth">
-      <input type="password" id="password" placeholder="পাসওয়ার্ড লিখো..."><br>
-      <button class="btn" onclick="checkPassword()">Open 💌</button>
-    </div>
+<div id="auth">
+  <input type="password" id="password" placeholder="পাসওয়ার্ড লিখো..."><br>
+  <button class="btn" onclick="checkPassword()">Open 💌</button>
+</div>
 
-    <button class="btn" id="startBtn" style="display:none; margin-top:10px;">
-      বাকি চিঠিটা পড়ো 💌
-    </button>
+<button class="btn" id="startBtn" style="display:none; margin-top:10px;">
+  বাকি চিঠিটা পড়ো 💌
+</button>
 
-    <div class="letter" id="letter"></div>
+<div class="letter" id="letter">
+  <span id="text"></span><span class="cursor"></span>
+</div>
 
-  </div>
+<div class="quote-box" id="quote">
+  I love you Rakhi. 🩵💙💜💚
+</div>
+
+</div>
 </div>
 
 <script>
@@ -186,71 +200,95 @@ const correctPassword = "Rakhi+Utsab-22.01.2026";
 function checkPassword(){
   const pass = document.getElementById("password").value;
   if(pass === correctPassword){
-    document.getElementById("auth").style.display = "none";
-    document.getElementById("desc").style.display = "none";
-    document.getElementById("startBtn").style.display = "inline-block";
+    document.getElementById("auth").style.display="none";
+    document.getElementById("desc").style.display="none";
+    document.getElementById("startBtn").style.display="inline-block";
   }else{
     alert("ভুল পাসওয়ার্ড 😒");
   }
 }
 
-/* 💖 FULL LETTER */
-const text = `তুমি শুধু একজন মানুষ নও। তুমি আমার দিনের শুরু, রাতের শেষ। তুমি আমার স্বপ্নের ভেতর ঘুরে বেড়ানো একমাত্র মুখ। আমি যখন ভবিষ্যৎ কল্পনা করি, সেখানে তুমি ছাড়া আর কাউকে দেখি না। তোমাকে ছাড়া কোনো ছবিই পূর্ণ হয় না।
+const text = `ুধু একজন মানুষ নও। তুমি আমার দিনের শুরু, রাতের শেষ। তুমি আমার স্বপ্নের ভেতর ঘুরে বেড়ানো একমাত্র মুখ। আমি যখন ভবিষ্যৎ কল্পনা করি, সেখানে তুমি ছাড়া আর কাউকে দেখি না। তোমাকে ছাড়া কোনো ছবিই পূর্ণ হয় না।
 
-তোমার চোখের দিকে তাকালে আমার মনে হয় আমি পৃথিবীর সবচেয়ে নিরাপদ জায়গায় আছি। তোমার কণ্ঠ শুনলে মনে হয় কেউ খুব নরম করে আমার সমস্ত অস্থিরতা ছুঁয়ে দিচ্ছে। তোমার ছোট ছোট অভিমান, তোমার নরম কথাগুলো, তোমার চুপ করে থাকা—সবকিছুই আমার কাছে অমূল্য।
+তোমার চোখের দিকে তাকালে আমার মনে হয় আমি পৃথিবীর সবচেয়ে নিরাপদ জায়গায় আছি। তোমার কণ্ঠ শুনলে মনে হয় কেউ খুব নরম করে আমার সমস্ত অস্থিরতা ছুঁয়ে দিচ্ছে। তোমার ছোট ছোট অভিমান, তোমার নরম কথাগুলো, তোমার চুপ করে থাকা, সবকিছুই আমার কাছে অমূল্য।
 
-আমি তোমার ভালোবাসায় কোনো শর্ত রাখতে চাই না। তুমি যেমন, ঠিক তেমনটাই আমার কাছে সবচেয়ে সুন্দর।
+আমি তোমার ভালোবাসায় কোনো শর্ত রাখতে চাই না। আমি চাই না তুমি বদলে যাও, আমি চাই না তুমি অন্য কারও মতো হও। তুমি যেমন, ঠিক তেমনটাই আমার কাছে সবচেয়ে সুন্দর। তোমার সরলতা, তোমার জেদ, তোমার হাসি, তোমার কান্না সবকিছু মিলিয়েই তুমি আমার রাখি।
 
-রাখি, আমি তোমাকে হারানোর কথা ভাবতেও পারি না। কারণ তুমি শুধু একজন মানুষ না—তুমি আমার একটা অংশ।
+রাখি, আমি কখনো তোমাকে হারানোর কথা ভাবতে পারি না। কারণ তোমাকে হারানো মানে আমার নিজের একটা অংশ হারানো। তুমি আমার ভেতরে এমনভাবে মিশে গেছো যে তোমাকে আলাদা করে ভাবাই অসম্ভব। আমি যখন নিজের কথা ভাবি, তখন সেখানে তোমার ছায়া জড়িয়ে থাকে।
 
-আমি প্রতিশ্রুতি দিচ্ছি, যত ঝড়ই আসুক, আমি তোমার পাশে থাকবো।
+আমি জানি জীবন সবসময় সহজ হবে না। অনেক ঝড় আসবে, অনেক ভুল বোঝাবুঝি হবে। কিন্তু একটা কথা আমি তোমাকে প্রতিশ্রুতি দিয়ে বলতে চাই, আমি তোমার হাত কখনো ছাড়বো না। আমি তোমার পাশে দাঁড়িয়ে থাকবো, এমনকি যখন পুরো পৃথিবী বিপরীতে দাঁড়াবে তখনও।
 
-শেষে শুধু একটা কথাই—
-আমি তোমাকে ভালোবাসি... আজ, কাল, প্রতিদিন। ❤️
+রাখি, তোমার সুখ আমার কাছে নিজের সুখের চেয়েও বড়। তুমি হাসলে আমার দিন ভালো যায়। তুমি মন খারাপ করলে আমার ভেতরটাও ভারী হয়ে যায়। তুমি ভালো থাকলে আমি শান্তি পাই। আমি চাই তুমি এমন একটা জীবন পাও, যেখানে তুমি সবসময় নিজেকে ভালোবাসতে পারবে, নিজের মতো করে হাসতে পারবে। আর যদি সেই জীবনে আমার জায়গা থাকে, তাহলে সেটা হবে আমার সবচেয়ে বড় অর্জন।
+
+তুমি জানো, আমি অন্যদের মতো না। তুমি যদি কখনো দূরে সরে যাও, তবুও আমি তোমার জন্য মনের ভেতর একটা জায়গা রেখে দেবো। আমি চিৎকার করবো না, অভিযোগ করবো না। শুধু নীরবে ভালোবাসবো। কারণ আমার ভালোবাসা পাওয়ার জন্য নয়, দেওয়ার জন্য।
+
+তোমার প্রতিটা ছোট মুহূর্ত আমার কাছে গল্প হয়ে যায়। তোমার একটা “ভালোবাসি” শব্দ আমার পুরো দিনটাকে বদলে দেয়। তুমি হয়তো বুঝতে পারো না, কিন্তু তোমার সামান্য যত্নও আমার কাছে অনেক বড় ব্যাপার।
+
+রাখি, তুমি আমার জীবনের সেই মানুষ, যাকে আমি শুধু চাই না, আমি অনুভব করি। তুমি আমার ভেতরের সবচেয়ে নরম অংশটাকে জাগিয়ে তুলেছো। তোমার জন্যই আমি আরও ভালো মানুষ হতে চাই। তোমার জন্যই আমি নিজের ভুলগুলো ঠিক করতে শিখছি।
+
+আমি তোমাকে কোনো রাজকীয় প্রতিশ্রুতি দিতে পারি না। কিন্তু আমি দিতে পারি একটা সৎ হৃদয়। দিতে পারি এমন একটা ভালোবাসা, যেখানে প্রতারণা নেই, অভিনয় নেই। আছে শুধু সত্যি অনুভূতি।
+
+আমি চাই একদিন তুমি এই চিঠিটা পড়ে বুঝবে, কেউ একজন তোমাকে এত গভীরভাবে ভালোবেসেছিল যে তার প্রতিটা শ্বাসে তোমার নাম ছিল। আমি চাই তুমি জানো, তোমার জন্য আমার ভালোবাসা সময়ের সাথে কমবে না। বরং প্রতিদিন একটু একটু করে আরও গভীর হবে।
+
+রাখি, তুমি আমার প্রথম ভালোবাসা। আর আমি চাই তুমি আমার শেষও হও। আমি চাই না আমার হৃদয়ে আর কেউ তোমার জায়গা নিক। কারণ তুমি যে জায়গাটা নিয়েছো, সেটা একদম আলাদা। সেটা শুধু তোমার জন্য।
+
+যদি কখনো আমি ভুল করি, আমাকে ঠিক করে দিও। যদি কখনো আমি দুর্বল হয়ে পড়ি, আমাকে শক্ত করে ধরো। কারণ আমি তোমাকে নিয়ে একটা জীবন গড়তে চাই যেখানে ভালোবাসা থাকবে, সম্মান থাকবে, বিশ্বাস থাকবে।
+
+তুমি আমার জীবনের সবচেয়ে সুন্দর অধ্যায়। আমি জানি না আমাদের গল্প কত বড় হবে, কত দূর যাবে। কিন্তু যতদিন থাকবে, আমি চাই সেটা সত্যিকারের ভালোবাসায় ভরা থাকুক।
+
+রাখি, তুমি আমার শান্তি। তুমি আমার সাহস। তুমি আমার প্রার্থনা। আমি যখন চোখ বন্ধ করি, তখন তোমার মুখটাই ভেসে ওঠে। আর তখন মনে হয় আমি পৃথিবীর সবচেয়ে ভাগ্যবান মানুষ।
+
+আমি তোমাকে ভালোবাসি শুধু আজ না, শুধু এই মুহূর্ত না, আমি তোমাকে ভালোবাসি প্রতিটা আগামীকালেও। যতদিন আমার হৃদয় ধড়ফড় করবে, ততদিন সেখানে তোমার নাম থাকবে।
+ভালোবাসা কখনো শব্দে শেষ হয় না। তবুও শেষ করছি এই বলে—
+তুমি আমার। আর আমি, পুরোটা জুড়ে, শুধু তোমার।
+
 
 ইতি,
 তোমারই ___ 💖`;
 
 let i = 0;
+const textEl = document.getElementById("text");
+const quoteBox = document.getElementById("quote");
 
-document.getElementById("startBtn").addEventListener("click", function () {
+document.getElementById("startBtn").addEventListener("click", function(){
 
-  this.style.display = "none";
+  this.style.display="none";
 
   const letter = document.getElementById('letter');
-  letter.style.display = 'block';
-  letter.innerHTML = "";
+  letter.style.display='block';
 
   function type(){
     if(i < text.length){
-      letter.innerHTML += text.charAt(i);
+      textEl.innerHTML += text.charAt(i);
       i++;
 
-      /* 🔥 SMOOTH PAGE SCROLL */
       window.scrollTo({
         top: document.body.scrollHeight,
-        behavior: "smooth"
+        behavior:"smooth"
       });
 
-      setTimeout(type, 30);
+      setTimeout(type, 20 + Math.random()*40);
+    }else{
+      /* ✅ show quote after typing */
+      quoteBox.style.display = "block";
     }
   }
 
   type();
 });
 
-/* ❤️ HEART GENERATOR */
+/* hearts */
 function createHeart(){
-  const heart = document.createElement('div');
+  const heart=document.createElement('div');
   heart.classList.add('heart');
-  heart.style.left = Math.random()*100 + 'vw';
-  heart.style.animationDuration = (6 + Math.random()*6) + 's';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.animationDuration=(6+Math.random()*6)+'s';
   document.body.appendChild(heart);
 
-  setTimeout(()=> heart.remove(), 12000);
+  setTimeout(()=>heart.remove(),12000);
 }
 
-setInterval(createHeart, 300);
+setInterval(createHeart,400);
 
 </script>
 
