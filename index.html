@@ -168,13 +168,17 @@ document.getElementById("startBtn").addEventListener("click", function () {
   letter.style.display = 'block';
   letter.innerHTML = "";
 
-  function type(){
-    if(i < text.length){
-      letter.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, 35);
-    }
+function type(){
+  if(i < text.length){
+    letter.innerHTML += text.charAt(i);
+    i++;
+
+    // 🔥 auto scroll নিচে নামাবে
+    letter.scrollTop = letter.scrollHeight;
+
+    setTimeout(type, 35);
   }
+}
 
   type();
 });
