@@ -1,129 +1,182 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>অসম্পূর্ণ চিঠি</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;600&display=swap" rel="stylesheet">
+<title>অসম্পূর্ণ চিঠি</title>
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;600&display=swap" rel="stylesheet">
 
-    body{
-      min-height:100vh;
-      font-family:'Noto Serif Bengali', serif;
-      background: radial-gradient(circle at top, #2b2b55, #0f0f1a);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .container{
-      width:90%;
-      max-width:750px;
-      padding:40px;
-      border-radius:25px;
-      backdrop-filter: blur(20px);
-      background: rgba(255,255,255,0.08);
-      box-shadow:0 20px 60px rgba(0,0,0,0.6);
-      text-align:center;
-    }
+body{
+  min-height:100vh;
+  font-family:'Noto Serif Bengali', serif;
 
-    h1{font-size:30px;margin-bottom:15px;color:#ffb6c1;}
+  /* 🔥 PREMIUM GRADIENT */
+  background: radial-gradient(circle at top, #2b2b55, #0f0f1a);
+  background-attachment: fixed;
 
-    .desc{
-      font-size:16px;
-      margin-bottom:25px;
-      color:#ddd;
-      line-height:1.6;
-    }
+  color:#fff;
+  overflow-y:auto;
+}
 
-    input{
-      padding:10px;
-      border-radius:20px;
-      border:none;
-      outline:none;
-      text-align:center;
-      margin-bottom:10px;
-      width:200px;
-    }
+/* ✨ CENTER CONTENT */
+.wrapper{
+  display:flex;
+  justify-content:center;
+}
 
-    .btn{
-      padding:10px 20px;
-      border:none;
-      border-radius:25px;
-      background:linear-gradient(135deg,#ff4b91,#ff7eb3);
-      color:#fff;
-      cursor:pointer;
-    }
+/* 💎 GLASS CARD */
+.container{
+  width:90%;
+  max-width:750px;
+  padding:40px;
+  margin:80px 0;
 
-    /* ✅ FIXED LETTER BOX */
-    .letter{
-      margin-top:25px;
-      text-align:left;
-      line-height:2;
-      font-size:18px;
-      display:none;
-      border-left:3px solid #ff9acb;
-      padding-left:20px;
-      white-space:pre-line;
+  border-radius:25px;
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.08);
+  box-shadow:0 20px 80px rgba(0,0,0,0.7);
 
-      max-height:350px;
-      overflow-y:auto;
-    }
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
 
-    .heart{
-      position:absolute;
-      width:15px;
-      height:15px;
-      background:#ff4b91;
-      transform:rotate(45deg);
-      animation: float 8s linear infinite;
-    }
+h1{
+  font-size:30px;
+  margin-bottom:15px;
+  color:#ffb6c1;
+}
 
-    .heart::before,
-    .heart::after{
-      content:'';
-      position:absolute;
-      width:15px;
-      height:15px;
-      background:#ff4b91;
-      border-radius:50%;
-    }
+.desc{
+  font-size:16px;
+  margin-bottom:25px;
+  color:#ddd;
+  line-height:1.7;
+}
 
-    .heart::before{top:-7px;}
-    .heart::after{left:-7px;}
+input{
+  padding:10px;
+  border-radius:20px;
+  border:none;
+  outline:none;
+  text-align:center;
+  margin-bottom:10px;
+  width:200px;
+}
 
-    @keyframes float{
-      0%{transform:translateY(100vh) rotate(45deg); opacity:1;} 
-      100%{transform:translateY(-10vh) rotate(45deg); opacity:0;} 
-    }
-  </style>
+.btn{
+  padding:10px 20px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(135deg,#ff4b91,#ff7eb3);
+  color:#fff;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+/* 💌 LETTER STYLE */
+.letter{
+  margin-top:25px;
+  text-align:justify; /* 🔥 equal spacing */
+  line-height:2;
+  font-size:18px;
+  display:none;
+
+  border-left:3px solid #ff9acb;
+  padding-left:20px;
+  white-space:pre-line;
+}
+
+/* ❤️ HEART BACKGROUND */
+.heart{
+  position:fixed;
+  width:15px;
+  height:15px;
+  background:#ff4b91;
+  transform:rotate(45deg);
+  animation: float 10s linear infinite;
+
+  z-index:0;
+  opacity:0.4;
+  filter:blur(1px);
+}
+
+.heart::before,
+.heart::after{
+  content:'';
+  position:absolute;
+  width:15px;
+  height:15px;
+  background:#ff4b91;
+  border-radius:50%;
+}
+
+.heart::before{top:-7px;}
+.heart::after{left:-7px;}
+
+@keyframes float{
+  0%{
+    transform:translateY(100vh) rotate(45deg);
+    opacity:0;
+  }
+  20%{opacity:0.6;}
+  100%{
+    transform:translateY(-10vh) rotate(45deg);
+    opacity:0;
+  }
+}
+
+/* 📱 MOBILE OPTIMIZATION */
+@media(max-width:600px){
+  .container{
+    padding:25px;
+  }
+
+  .letter{
+    font-size:16px;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="container">
-  <h1>ভালোবাসার অসম্পূর্ণ চিঠি</h1>
+<div class="wrapper">
+  <div class="container">
 
-  <div class="desc" id="desc">
-    তোমাকে একটা চিঠি দিয়েছিলাম। কিন্তু কোনো এক অজানা কারণে চিঠিটা লিখে শেষ করতে পারিনি।
-    তাই বাকি চিঠিটা এই ওয়েবসাইটের মাধ্যমে প্রকাশ করলাম।
+    <h1>ভালোবাসার অসম্পূর্ণ চিঠি</h1>
+
+    <div class="desc" id="desc">
+      তোমাকে একটা চিঠি দিয়েছিলাম। কিন্তু কোনো এক অজানা কারণে চিঠিটা লিখে শেষ করতে পারিনি।
+      তাই বাকি চিঠিটা এই ওয়েবসাইটের মাধ্যমে প্রকাশ করলাম।
+    </div>
+
+    <div id="auth">
+      <input type="password" id="password" placeholder="পাসওয়ার্ড লিখো..."><br>
+      <button class="btn" onclick="checkPassword()">Open 💌</button>
+    </div>
+
+    <button class="btn" id="startBtn" style="display:none; margin-top:10px;">
+      বাকি চিঠিটা পড়ো 💌
+    </button>
+
+    <div class="letter" id="letter"></div>
+
   </div>
-
-  <div id="auth">
-    <input type="password" id="password" placeholder="পাসওয়ার্ড লিখো...">
-    <br>
-    <button class="btn" onclick="checkPassword()">Open 💌</button>
-  </div>
-
-  <button class="btn" id="startBtn" style="display:none; margin-top:10px;">
-    বাকি চিঠিটা পড়ো 💌
-  </button>
-
-  <div class="letter" id="letter"></div>
 </div>
 
 <script>
@@ -141,16 +194,22 @@ function checkPassword(){
   }
 }
 
-/* ✅ FIXED FIRST LINE */
+/* 💖 FULL LETTER */
 const text = `তুমি শুধু একজন মানুষ নও। তুমি আমার দিনের শুরু, রাতের শেষ। তুমি আমার স্বপ্নের ভেতর ঘুরে বেড়ানো একমাত্র মুখ। আমি যখন ভবিষ্যৎ কল্পনা করি, সেখানে তুমি ছাড়া আর কাউকে দেখি না। তোমাকে ছাড়া কোনো ছবিই পূর্ণ হয় না।
 
-তোমার চোখের দিকে তাকালে আমার মনে হয় আমি পৃথিবীর সবচেয়ে নিরাপদ জায়গায় আছি। তোমার কণ্ঠ শুনলে মনে হয় কেউ খুব নরম করে আমার সমস্ত অস্থিরতা ছুঁয়ে দিচ্ছে। তোমার ছোট ছোট অভিমান, তোমার নরম কথাগুলো, তোমার চুপ করে থাকা, সবকিছুই আমার কাছে অমূল্য।
+তোমার চোখের দিকে তাকালে আমার মনে হয় আমি পৃথিবীর সবচেয়ে নিরাপদ জায়গায় আছি। তোমার কণ্ঠ শুনলে মনে হয় কেউ খুব নরম করে আমার সমস্ত অস্থিরতা ছুঁয়ে দিচ্ছে। তোমার ছোট ছোট অভিমান, তোমার নরম কথাগুলো, তোমার চুপ করে থাকা—সবকিছুই আমার কাছে অমূল্য।
 
-আমি তোমার ভালোবাসায় কোনো শর্ত রাখতে চাই না। আমি চাই না তুমি বদলে যাও, আমি চাই না তুমি অন্য কারও মতো হও। তুমি যেমন, ঠিক তেমনটাই আমার কাছে সবচেয়ে সুন্দর।
+আমি তোমার ভালোবাসায় কোনো শর্ত রাখতে চাই না। তুমি যেমন, ঠিক তেমনটাই আমার কাছে সবচেয়ে সুন্দর।
+
+রাখি, আমি তোমাকে হারানোর কথা ভাবতেও পারি না। কারণ তুমি শুধু একজন মানুষ না—তুমি আমার একটা অংশ।
+
+আমি প্রতিশ্রুতি দিচ্ছি, যত ঝড়ই আসুক, আমি তোমার পাশে থাকবো।
+
+শেষে শুধু একটা কথাই—
+আমি তোমাকে ভালোবাসি... আজ, কাল, প্রতিদিন। ❤️
 
 ইতি,
-তোমারই ___ ❤️
-`;
+তোমারই ___ 💖`;
 
 let i = 0;
 
@@ -167,28 +226,31 @@ document.getElementById("startBtn").addEventListener("click", function () {
       letter.innerHTML += text.charAt(i);
       i++;
 
-      /* ✅ AUTO SCROLL */
-      letter.scrollTop = letter.scrollHeight;
+      /* 🔥 SMOOTH PAGE SCROLL */
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+      });
 
-      setTimeout(type, 35);
+      setTimeout(type, 30);
     }
   }
 
   type();
 });
 
-/* ❤️ floating hearts */
+/* ❤️ HEART GENERATOR */
 function createHeart(){
   const heart = document.createElement('div');
   heart.classList.add('heart');
   heart.style.left = Math.random()*100 + 'vw';
-  heart.style.animationDuration = (5 + Math.random()*5) + 's';
+  heart.style.animationDuration = (6 + Math.random()*6) + 's';
   document.body.appendChild(heart);
 
-  setTimeout(()=> heart.remove(), 8000);
+  setTimeout(()=> heart.remove(), 12000);
 }
 
-setInterval(createHeart, 400);
+setInterval(createHeart, 300);
 
 </script>
 
