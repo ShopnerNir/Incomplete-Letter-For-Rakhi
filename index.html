@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="bn">
+<!DOCTYPE html><html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>অসম্পূর্ণ চিঠি</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+  <title>রাখি সরকার + উৎসব সরকার</title>  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@300;400;600&display=swap" rel="stylesheet">  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
 
     body{
       height:100vh;
@@ -25,20 +16,6 @@
       color:#fff;
     }
 
-    .bg-glow{
-      position:absolute;
-      width:600px;
-      height:600px;
-      background: radial-gradient(circle, rgba(255,105,180,0.4), transparent);
-      filter: blur(120px);
-      animation: moveGlow 10s infinite alternate ease-in-out;
-    }
-
-    @keyframes moveGlow{
-      0%{transform:translate(-20%, -20%);} 
-      100%{transform:translate(20%, 20%);} 
-    }
-
     .container{
       width:90%;
       max-width:750px;
@@ -48,33 +25,38 @@
       background: rgba(255,255,255,0.08);
       box-shadow:0 20px 60px rgba(0,0,0,0.6);
       text-align:center;
-      z-index:2;
     }
 
-    h1{
-      font-size:32px;
-      margin-bottom:20px;
-      color:#ffb6c1;
+    h1{font-size:30px;margin-bottom:15px;color:#ffb6c1;}
+
+    .desc{
+      font-size:16px;
+      margin-bottom:25px;
+      color:#ddd;
+      line-height:1.6;
+    }
+
+    input{
+      padding:10px;
+      border-radius:20px;
+      border:none;
+      outline:none;
+      text-align:center;
+      margin-bottom:10px;
+      width:200px;
     }
 
     .btn{
-      padding:12px 25px;
+      padding:10px 20px;
       border:none;
-      border-radius:30px;
+      border-radius:25px;
       background:linear-gradient(135deg,#ff4b91,#ff7eb3);
       color:#fff;
-      font-size:16px;
       cursor:pointer;
-      transition:0.3s;
-      box-shadow:0 5px 20px rgba(255,0,100,0.5);
-    }
-
-    .btn:hover{
-      transform:scale(1.1);
     }
 
     .letter{
-      margin-top:30px;
+      margin-top:25px;
       text-align:left;
       line-height:2;
       font-size:18px;
@@ -110,22 +92,31 @@
       0%{transform:translateY(100vh) rotate(45deg); opacity:1;} 
       100%{transform:translateY(-10vh) rotate(45deg); opacity:0;} 
     }
-  </style>
-</head>
-
-<body>
-
-<div class="bg-glow"></div>
-
-<div class="container">
-  <h1>ভালোবাসার অসম্পূর্ণ চিঠি</h1>
-
-  <button class="btn" id="startBtn">বাকি চিঠিটা পড়ো 💌</button>
+  </style></head><body><div class="container">
+  <h1>ভালোবাসার অসম্পূর্ণ চিঠি</h1>  <div class="desc" id="desc">
+    তোমাকে একটা চিঠি দিয়েছিলাম। কিন্তু কোনো এক অজানা কারণে চিঠিটা লিখে শেষ করতে পারিনি।
+    তাই বাকি চিঠিটা এই ওয়েবসাইটের মাধ্যমে প্রকাশ করলাম।
+  </div>  <div id="auth">
+    <input type="password" id="password" placeholder="পাসওয়ার্ড লিখো...">
+    <br>
+    <button class="btn" onclick="checkPassword()">Open 💌</button>
+  </div><button class="btn" id="startBtn" style="display:none; margin-top:10px;">বাকি চিঠিটা পড়ো 💌</button>
 
   <div class="letter" id="letter"></div>
-</div>
+</div><script>
 
-<script>
+const correctPassword = "Rakhi+Utsab-22.01.2026";
+
+function checkPassword(){
+  const pass = document.getElementById("password").value;
+  if(pass === correctPassword){
+    document.getElementById("auth").style.display = "none";
+    document.getElementById("desc").style.display = "none";
+    document.getElementById("startBtn").style.display = "inline-block";
+  }else{
+    alert("ভুল পাসওয়ার্ড 😒");
+  }
+}
 
 const text = `ুধু একজন মানুষ নও। তুমি আমার দিনের শুরু, রাতের শেষ। তুমি আমার স্বপ্নের ভেতর ঘুরে বেড়ানো একমাত্র মুখ। আমি যখন ভবিষ্যৎ কল্পনা করি, সেখানে তুমি ছাড়া আর কাউকে দেখি না। তোমাকে ছাড়া কোনো ছবিই পূর্ণ হয় না।
 
@@ -172,8 +163,8 @@ document.getElementById("startBtn").addEventListener("click", function () {
 
   this.style.display = "none";
 
-  const letter = document.getElementById("letter");
-  letter.style.display = "block";
+  const letter = document.getElementById('letter');
+  letter.style.display = 'block';
   letter.innerHTML = "";
 
   function type(){
@@ -199,7 +190,9 @@ function createHeart(){
 
 setInterval(createHeart, 400);
 
-</script>
-
-</body>
+</script></body>
 </html>
+
+
+
+
